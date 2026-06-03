@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> happy birth day moka ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="welcome-overlay">
+        <div id="heart-canvas-container"></div>
+        
+        <div class="welcome-box glass-effect">
+            <h2 id="welcome-title"> يوم اكتمال القمر  ... بوابه المفاجاه✨</h2>
+            
+            <div class="countdown-container" id="intro-countdown">
+                <div class="time-box"><span>00</span><small>يوم</small></div>
+                <div class="time-box"><span>00</span><small>ساعة</small></div>
+                <div class="time-box"><span>00</span><small>دقيقة</small></div>
+                <div class="time-box"><span>00</span><small>ثانية</small></div>
+            </div>
+
+            <button id="start-btn" onclick="startEverything()" style="display: none;"> يلا بينا 🚀</button>
+        </div>
+    </div>
+
+    <div id="hearts-container"></div>
+
+    <section id="envelope-section" class="page-intro">
+        <div class="envelope-wrapper">
+            <div class="envelope" id="main-envelope" onclick="openEnvelope()">
+                <div class="flap"></div>
+                <div class="pocket"></div>
+                <div class="letter" id="secret-letter">
+                    <h2 style="color: #8b0000; margin-bottom: 10px;">Happy Birthday! 🥳</h2>
+                    <p style="font-size: 0.95rem; line-height: 1.5; color: #333; font-weight: bold;">
+     حبيت افرحك وافاجئك ب الهديه البسيطه ديه اللي قدرت اعبر بيها بطريقتي
+     واقولك كل سنه وانتي طيبه وعقبال سنين حلوه كتير جايه عليكي ربنا يوفقك في حياتك يارب ربنا يعلم قد اي غلاوتك عندي
+ 🥰✨I LOVE❤️✨🌹    </p>
+                    <div style="font-size: 25px; margin-top: 5px;">🎂🎉🎁</div>
+                </div>
+            </div>
+        </div>
+        <p class="hint-click-env">افتحي الرسالة  👆</p>
+        <a href="#prank-page" id="go-from-envelope" class="btn-down" style="display: none; margin-top: 40px;">انزلي لسه في كتير  😉 ↓</a>
+    </section>
+
+    <section id="prank-page" class="page-prank">
+        <div class="prank-container glass-effect">
+            <img src="image/love.jpg" alt="سؤال مهم" class="prank-img">
+            <h2 id="prank-question">بتحبيني؟؟😎</h2>
+            
+            <div class="prank-buttons-wrapper">
+                <button id="btn-yes" onclick="answerYes()">ايوا . بحبك  ! 😂❤️</button>
+                <button id="btn-no">لأ طبعاً 😜</button>
+            </div>
+            
+            <div id="prank-success-msg" class="hidden-msg">
+                <p>كنت عارف إنك بتحبيني  ! متقدريش تقولي لاء 😌😌😌😂 تعالي بقا نشوف حكايتنا سوا..</p>
+                <a href="#journey" class="btn-down"> شريط النسبه 👇</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey" class="page-journey">
+        <h2>اسحبي الشريط   🧭</h2>
+        <div class="percentage-display"><span id="range-value">0</span>%</div>
+        <div class="story-container glass-effect">
+            <img id="story-img" src="image/000.jpg" alt="ذكريات">
+            <p id="story-caption">حركي الشريط واختاري النسبه ...</p>
+        </div>
+        <div class="slider-wrapper">
+            <input type="range" id="story-slider" min="0" max="100" value="0" step="10">
+        </div>
+        <a href="#quiz" class="btn-down">ندخل على التحدي الاختباري؟ 😉 ↓</a>
+    </section>
+
+    <section id="quiz" class="page-quiz">
+        <h2>ألعاب واختبارات: ممكن تعرفك انا مين 🧠</h2>
+        <div class="quiz-container glass-effect">
+            <div id="quiz-box">
+                <div class="quiz-header">
+                    <span id="question-number">السؤال 1 من 5</span>
+                </div>
+                <h3 id="question-text">تحميل السؤال...</h3>
+                <div class="quiz-options">
+                    <button class="option-btn" onclick="checkAnswer(true)">صح ✅</button>
+                    <button class="option-btn" onclick="checkAnswer(false)">غلط ❌</button>
+                </div>
+            </div>
+            <div id="quiz-feedback" class="feedback-hidden">
+                <img id="feedback-img" src="" alt="نتيجة">
+                <p id="feedback-text"></p>
+                <button id="next-btn" onclick="nextQuestion()">السؤال التالي ➡️</button>
+            </div>
+        </div>
+        <a href="#essay-quiz" class="btn-down">ندخل على التحدي الصريح؟ 💬 ↓</a>
+    </section>
+
+    <section id="essay-quiz" class="page-quiz" style="background: linear-gradient(-45deg, #8b0000, #b33939, #cd201f, #a5201f);">
+        <h2>أسئلة صريحة: من القلب للقلب 💬</h2>
+        <div class="quiz-container glass-effect" style="max-width: 550px;">
+            <div id="essay-box">
+                <div class="quiz-header">
+                    <span id="essay-number">السؤال 1 من 10</span>
+                </div>
+                <h3 id="essay-question-text">تحميل السؤال الصريح...</h3>
+                <div class="quiz-options" style="flex-direction: column; gap: 10px; margin-top: 15px;">
+                    <textarea id="essay-answer-input" placeholder="اكتب إجابتك بكل صراحة هنا..." style="width: 100%; height: 100px; border-radius: 12px; padding: 10px; border: 1px solid var(--gold); background: rgba(0,0,0,0.5); color: white; font-family: inherit; resize: none; text-align: right;" dir="rtl"></textarea>
+                    <button id="essay-next-btn" class="option-btn" onclick="submitEssayAnswer()" style="width: 100%;">تأكيد الإجابة والانتقال للتالي ➡️</button>
+                </div>
+            </div>
+            <div id="essay-final-box" style="display: none; text-align: center;">
+                <img src="image/Q kiss.jpg" alt="شكرا لك" style="width: 100%; height: 160px; object-fit: cover; border-radius: 12px; margin-bottom: 15px;">
+                <p id="sheet-status-text" style="font-size: 1.2rem; font-weight: bold; color: var(--gold); margin-bottom: 15px;">شكراً لصراحتك! اضغط بالأسفل لحفظ الإجابات داخل الصندوق السري 🔐</p>
+                <button id="send-sheet-btn" onclick="sendAnswersToGoogleSheets()" style="background: #2ecc71; color: white; border: none; padding: 12px 30px; border-radius: 25px; font-size: 1.1rem; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                     إرسال الإجابات السرية الى الصندوق السري  🚀
+                </button>
+            </div>
+        </div>
+        <a href="#music" class="btn-down">ركن الأغاني والموسيقى ↓</a>
+    </section>
+
+    <section id="music" class="page-music">
+        <h2 style="margin-bottom: 25px;">🎵 ركن الموسيقى المفضله</h2>
+        <div class="playlist glass-effect">
+            <div class="song-card" onclick="togglePlay('song1')">
+                <span id="icon-song1" class="play-icon">▶️</span>
+                <div class="song-info"><strong>حلم بعييد</strong><p> العـسيـلي </p></div>
+                <audio id="song1" src="music/7lm baeed.mp3" preload="auto"></audio>
+            </div>
+            <div class="song-card" onclick="togglePlay('song2')">
+                <span id="icon-song2" class="play-icon">▶️</span>
+                <div class="song-info"><strong>أحلى حاجة فيكي</strong><p>محمد حماقي</p></div>
+                <audio id="song2" src="music/ahla haga feky.mp3" preload="auto"></audio>
+            </div>
+              <div class="song-card" onclick="togglePlay('song3')">
+                <span id="icon-song3" class="play-icon">▶️</span>
+                <div class="song-info"><strong> معايا </strong><p>بهاء سلطان </p></div>
+                <audio id="song3" src="music/maaya.mp3" preload="auto"></audio>
+            </div>
+            <div class="song-card" onclick="togglePlay('song4')">
+                <span id="icon-song4" class="play-icon">▶️</span>
+                <div class="song-info"><strong> خليك معايا  </strong><p> عمرو دياب </p></div>
+                <audio id="song4" src="music/10.Khalik_Maaaya.mp3" preload="auto"></audio>
+            </div>
+            <div class="song-card" onclick="togglePlay('song5')">
+                <span id="icon-song5" class="play-icon">▶️</span>
+                <div class="song-info"><strong> مع الايام  </strong><p> رامي صبري </p></div>
+                <audio id="song5" src="music/10_-_Ma3_El_Ayam.mp3" preload="auto"></audio>
+            </div>
+            <div class="song-card" onclick="togglePlay('song6')">
+                <span id="icon-song6" class="play-icon">▶️</span>
+                <div class="song-info"><strong> قصر بعيد </strong><p> تامر عاشور</p></div>
+                <audio id="song6" src="music/qasr b3eed.mp3" preload="auto"></audio>
+            </div>
+            <div class="song-card" onclick="togglePlay('song7')">
+                <span id="icon-song7" class="play-icon">▶️</span>
+                <div class="song-info"><strong>  عيني انت </strong><p> محمد عبد الجبار </p></div>
+                <audio id="song7" src="music/3eny anta.mp3" preload="auto"></audio>
+            </div>
+        </div>
+        <a href="#end" class="btn-down"> النهايه🖤✨ ↓</a>
+    </section>
+
+    <section id="end" class="page-end">
+        <h1>كل سنة وأنتي أطيب وأغلى الناس على قلبي يا ملك ❤️✨</h1>
+        <p style="font-size: 1.5rem; margin-top: 10px;">24 يونيو 2026</p>
+        <div class="cake-icon">🎂🎉🎁</div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
