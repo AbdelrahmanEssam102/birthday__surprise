@@ -62,7 +62,7 @@ window.addEventListener('resize', () => {
 // ⏰ كود العداد التنازلي المدمج في الإنترو (30 أكتوبر 2026)
 // ==========================================
 function updateCountdown() {
-    const targetDate = new Date("may 24, 2026 00:00:00").getTime();
+    const targetDate = new Date("jun 24, 2026 00:00:00").getTime();
     const now = new Date().getTime();
     const diff = targetDate - now;
 
