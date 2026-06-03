@@ -178,18 +178,17 @@ const rangeValue = document.getElementById('range-value');
 const storyImg = document.getElementById('story-img');
 const storyCaption = document.getElementById('story-caption');
 
+
 slider.addEventListener('input', function() {
     const value = this.value;
     rangeValue.innerText = value;
     if (storyData[value]) {
-        storyImg.style.transform = "scale(0.95)"; storyImg.style.opacity = 0.3;
-        setTimeout(() => {
-            storyImg.src = storyData[value].img;
-            storyCaption.innerText = storyData[value].caption;
-            storyImg.style.transform = "scale(1)"; storyImg.style.opacity = 1;
-        }, 200);
+        // تغيير فوري للوزن والصورة بدون تأخير الأنيميشن الثقيل
+        storyImg.src = storyData[value].img;
+        storyCaption.innerText = storyData[value].caption;
     }
 });
+
 
 // ==========================================
 // 6. لعبة الأسئلة الـ 5 التفاعلية
