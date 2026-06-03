@@ -102,7 +102,7 @@ function startEverything() {
         document.getElementById('heart-canvas-container').innerHTML = '';
     }, 800);
     
-    togglePlay('song1'); // تشغيل الأغنية الأولى
+    togglePlay('song4'); // تشغيل الأغنية الأولى
 }
 
 
