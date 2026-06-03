@@ -18,7 +18,7 @@ function getHeartPoint(t) {
 
 const geometry = new THREE.BufferGeometry();
 const vertices = [];
-const totalParticles = 1200;
+const totalParticles = 500;
 
 for (let i = 0; i < totalParticles; i++) {
     const t = (i / totalParticles) * Math.PI * 2;
@@ -83,16 +83,28 @@ function updateCountdown() {
 const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
-// دالة الدخول للموقع وتشغيل الأغنية
+// دالة الدخول للموقع وتشغيل الأغنية المحدثة لتسريع الفون
 function startEverything() {
     const overlay = document.getElementById('welcome-overlay');
     overlay.style.opacity = '0';
+    
     setTimeout(() => { 
         overlay.style.display = 'none'; 
-        renderer.dispose(); 
+        
+        // 🚀 السطور السحرية لتدمير الأنيميشن تماماً وتحرير رامات التليفون
+        cancelAnimationFrame(animateHeart); // إيقاف محرك الحركة
+        scene.remove(heartParticles); // حذف جزيئات القلب من المشهد
+        geometry.dispose(); // مسح الهيكل من الذاكرة
+        material.dispose(); // مسح الألوان والنيون من الذاكرة
+        renderer.dispose(); // إغلاق محرك الرندر تماماً
+        
+        // تنظيف الحاوية لضمان عدم وجود أي بقايا ثقيلة
+        document.getElementById('heart-canvas-container').innerHTML = '';
     }, 800);
-    togglePlay('song1'); // تشغيل الأغنية الأولى تلقائياً عند النقر على انطلق
+    
+    togglePlay('song1'); // تشغيل الأغنية الأولى
 }
+
 
 // ==========================================
 // ✉️ كود فتح الظرف السحري والرسالة
@@ -121,7 +133,7 @@ function createHeart() {
     container.appendChild(heart);
     setTimeout(() => { heart.remove(); }, 5000);
 }
-setInterval(createHeart, 400);
+setInterval(createHeart,1000);
 
 // ==========================================
 // 4. كود هروب زر "لأ" الفخ
